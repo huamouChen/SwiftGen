@@ -37,6 +37,13 @@ final class FontsTests: XCTestCase {
         suffix: "-customName"
       ),
       (
+        context: try StencilContext.enrich(
+          context: context,
+          parameters: ["lookupFunction=myFontFinder(name:family:path:)"]
+        ),
+        suffix: "-lookupFunction"
+      ),
+      (
         context: try StencilContext.enrich(context: context, parameters: ["preservePath"]),
         suffix: "-preservePath"
       ),
